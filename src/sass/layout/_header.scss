@@ -1,0 +1,84 @@
+@use "../abstracts/index" as *;
+
+.header {
+  display: flex;
+  align-items: center;
+
+  &__logo {
+    margin-right: 5rem;
+  }
+}
+
+.nav {
+  width: 100%;
+
+  &__list {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+
+  &__item.mr-auto {
+    margin-right: auto;
+  }
+
+  &__btn,
+  &__link {
+    font-size: 1rem;
+    display: block;
+    text-decoration: none;
+    color: $color-gray;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      color: $color-black;
+    }
+  }
+
+  &__btn {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &::after {
+      display: block;
+      content: "";
+      width: 1rem;
+      aspect-ratio: 1;
+      background-color: $color-gray;
+      mask-image: url("../images/icon-arrow-down.svg");
+      mask-repeat: no-repeat;
+      mask-size: contain;
+      mask-position: center;
+      -webkit-mask-image: url("../images/icon-arrow-down.svg");
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: contain;
+      -webkit-mask-position: center;
+    }
+
+    &:hover::after {
+      background-color: $color-black;
+    }
+  }
+
+  &__link {
+    &--primary {
+      border: 1px solid $color-gray;
+      border-radius: 0.8rem;
+      padding: 1rem 1.5rem;
+    }
+
+    &--primary:hover {
+      border: 1px solid $color-black;
+    }
+  }
+}
