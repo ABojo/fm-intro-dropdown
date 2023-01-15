@@ -129,12 +129,17 @@
             />
           </div>
         </div>
-
-        <img
-          class="hero__graphic"
-          src="./images/image-hero-desktop.png"
-          alt="Man holding laptop graphic"
-        />
+        <picture class="hero__graphic">
+          <source
+            media="(max-width:50em)"
+            type="image/png"
+            srcset="./images/image-hero-mobile.png"
+          />
+          <img
+            src="./images/image-hero-desktop.png"
+            alt="Man holding laptop graphic"
+          />
+        </picture>
       </main>
     </div>
     <script src="./js/index.js"></script>
