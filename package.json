@@ -1,0 +1,16 @@
+{
+  "name": "intro-dropdown",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start-server": "cd dist && live-server",
+    "build-sass": "sass --no-source-map -w src/sass/main.scss dist/css/styles.css",
+    "start": "npm-run-all --parallel start-server build-sass"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.57.1"
+  }
+}
