@@ -19,6 +19,7 @@
   }
 
   &__item {
+    position: relative;
     &:not(:last-child) {
       margin-right: 2rem;
     }
@@ -67,6 +68,11 @@
 
     &:hover::after {
       background-color: $color-black;
+    }
+
+    &--open::after {
+      mask-image: url("../images/icon-arrow-up.svg");
+      -webkit-mask-image: url("../images/icon-arrow-up.svg");
     }
   }
 
