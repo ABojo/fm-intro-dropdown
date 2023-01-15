@@ -27,6 +27,7 @@ button {
 .header {
   display: flex;
   align-items: center;
+  position: relative;
 }
 .header__logo {
   margin-right: 5rem;
@@ -34,6 +35,20 @@ button {
 
 .nav {
   width: 100%;
+}
+.nav__hamburger {
+  width: 4rem;
+  aspect-ratio: 1;
+  background-image: url("../images/icon-menu.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: none;
+  border: none;
+  background-color: transparent;
+}
+.nav__hamburger--open {
+  background-image: url("../images/icon-close-menu.svg");
 }
 .nav__list {
   list-style-type: none;
@@ -97,6 +112,50 @@ button {
 .nav__link--primary:hover {
   border: 1px solid hsl(0deg, 0%, 8%);
 }
+@media (max-width: 56.25em) {
+  .nav {
+    display: flex;
+    justify-content: end;
+  }
+  .nav__list {
+    display: none;
+    background-color: white;
+    border-radius: 1rem;
+  }
+  .nav__item {
+    padding: 1.5rem;
+  }
+  .nav__list.open {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 120%;
+    max-width: 30rem;
+    width: 100%;
+    flex-direction: column;
+  }
+  .nav__hamburger {
+    display: block;
+    justify-self: end;
+    margin-right: 0;
+    z-index: 100;
+  }
+  .nav__item:not(:last-child) {
+    margin-right: 0;
+    border-bottom: 1px solid rgba(105, 105, 105, 0.5);
+  }
+  .nav__item.mr-auto {
+    border-bottom: 1px solid hsl(0deg, 0%, 8%);
+  }
+  .nav__link--primary {
+    border: none;
+    padding: 0;
+  }
+  .nav__btn {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
 
 .dropdown {
   position: absolute;
@@ -133,6 +192,18 @@ button {
 .dropdown__icon {
   margin-right: 1rem;
   width: 1rem;
+}
+@media (max-width: 56.25em) {
+  .dropdown {
+    margin-top: 1rem;
+    position: static;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  .dropdown__link {
+    padding: 1rem;
+  }
 }
 
 .hero {

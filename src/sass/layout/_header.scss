@@ -3,6 +3,7 @@
 .header {
   display: flex;
   align-items: center;
+  position: relative;
 
   &__logo {
     margin-right: 5rem;
@@ -11,6 +12,22 @@
 
 .nav {
   width: 100%;
+
+  &__hamburger {
+    width: 4rem;
+    aspect-ratio: 1;
+    background-image: url("../images/icon-menu.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: none;
+    border: none;
+    background-color: transparent;
+
+    &--open {
+      background-image: url("../images/icon-close-menu.svg");
+    }
+  }
 
   &__list {
     list-style-type: none;
@@ -85,6 +102,59 @@
 
     &--primary:hover {
       border: 1px solid $color-black;
+    }
+  }
+
+  @include respond-to(tablet) {
+    display: flex;
+    justify-content: end;
+
+    &__list {
+      display: none;
+      background-color: white;
+      border-radius: 1rem;
+    }
+
+    &__item {
+      padding: 1.5rem;
+    }
+
+    &__list.open {
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 120%;
+      max-width: 30rem;
+      width: 100%;
+      flex-direction: column;
+    }
+
+    &__hamburger {
+      display: block;
+      justify-self: end;
+      margin-right: 0;
+      z-index: 100;
+    }
+
+    &__item {
+      &:not(:last-child) {
+        margin-right: 0;
+        border-bottom: 1px solid rgba($color-gray, 0.5);
+      }
+    }
+
+    &__item.mr-auto {
+      border-bottom: 1px solid $color-black;
+    }
+
+    &__link--primary {
+      border: none;
+      padding: 0;
+    }
+
+    &__btn {
+      width: 100%;
+      justify-content: space-between;
     }
   }
 }
