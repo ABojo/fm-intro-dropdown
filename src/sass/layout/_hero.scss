@@ -5,9 +5,7 @@
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 10rem;
   max-width: 70rem;
-
-  margin: 0 auto;
-  margin-top: 3rem;
+  margin: 3rem auto;
 
   &__heading,
   &__paragraph,
@@ -68,9 +66,13 @@
 
   &__clients {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 2rem;
     place-items: center;
+  }
+
+  &__client {
+    width: 100%;
   }
 
   @include respond-to(laptop) {
