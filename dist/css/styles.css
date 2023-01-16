@@ -27,17 +27,14 @@ button {
 .header {
   display: flex;
   align-items: center;
-  position: relative;
+  justify-content: space-between;
 }
 .header__logo {
   margin-right: 5rem;
 }
 
-.nav {
-  width: 100%;
-}
-.nav__hamburger {
-  width: 4rem;
+.hamburger {
+  width: 2rem;
   aspect-ratio: 1;
   background-image: url("../images/icon-menu.svg");
   background-position: center;
@@ -46,9 +43,16 @@ button {
   display: none;
   border: none;
   background-color: transparent;
+  font-size: 0;
 }
-.nav__hamburger--open {
-  background-image: url("../images/icon-close-menu.svg");
+@media (max-width: 56.25em) {
+  .hamburger {
+    display: block;
+  }
+}
+
+.nav {
+  width: 100%;
 }
 .nav__list {
   list-style-type: none;
@@ -63,6 +67,9 @@ button {
 }
 .nav__item.mr-auto {
   margin-right: auto;
+}
+.nav__close {
+  display: none;
 }
 .nav__btn, .nav__link {
   font-size: 1rem;
@@ -114,46 +121,61 @@ button {
 }
 @media (max-width: 56.25em) {
   .nav {
-    display: flex;
-    justify-content: end;
-  }
-  .nav__list {
+    position: fixed;
+    overflow-y: scroll;
+    top: 0;
+    left: 0;
+    background-color: rgba(20, 20, 20, 0.5);
+    min-height: 100vh;
     display: none;
-    background-color: white;
-    border-radius: 1rem;
+    z-index: 10;
+  }
+  .nav__close {
+    display: block;
+    width: 2rem;
+    aspect-ratio: 1;
+    background-image: url("../images/icon-close-menu.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    background-color: transparent;
+    align-self: end;
+    font-size: 0;
+  }
+  .nav.open {
+    display: block;
   }
   .nav__item {
     padding: 1.5rem;
   }
-  .nav__list.open {
-    display: block;
+  .nav__list {
+    background-color: white;
+    padding: 1rem 0.5rem;
     position: absolute;
     right: 0;
-    top: 120%;
-    max-width: 30rem;
+    top: 0;
+    max-width: 16rem;
     width: 100%;
     flex-direction: column;
-  }
-  .nav__hamburger {
-    display: block;
-    justify-self: end;
-    margin-right: 0;
-    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    min-height: 100vh;
   }
   .nav__item:not(:last-child) {
     margin-right: 0;
-    border-bottom: 1px solid rgba(105, 105, 105, 0.5);
   }
   .nav__item.mr-auto {
-    border-bottom: 1px solid hsl(0deg, 0%, 8%);
+    margin-bottom: auto;
   }
-  .nav__link--primary {
-    border: none;
-    padding: 0;
+  .nav__item--center {
+    align-self: stretch;
+    text-align: center;
+    padding-top: 0;
   }
   .nav__btn {
     width: 100%;
-    justify-content: space-between;
   }
 }
 
